@@ -28,24 +28,15 @@ export async function GET(
     }
 
     async function validatePassword(
-      password: string | null,
-      passwordHeader: string | null,
+      required: string | null,
+      provided: string | null,
     ) {
-      if (!password) {
-        // No password assigned, so just pass
-        console.log(`${code}: No password - pass`)
-        return true
-      }
-
-      if (!passwordHeader) {
-        console.log(`${code}: Password missing - block`)
-        return false
-      }
-
-      return password === passwordHeader
+      if (!required) return true
+      if (!provided) return false
+      return required === provided
     }
 
-    if (!await validatePassword(password, passwordHeader)) {
+    if (!(await validatePassword(password, passwordHeader))) {
       return NextResponse.json(
         { error: "Invalid or missing password" },
         { status: 401 },
@@ -85,7 +76,7 @@ export async function getUrlByCode(code: string): Promise<{
               checkbox: {
                 equals: true,
               },
-            },
+            }
           ],
         },
       },
