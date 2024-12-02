@@ -111,14 +111,7 @@ export default function ShortLink({
       </div>
 
       <div className={mergeCss(!passwordRequired && "invisible")}>
-        <form
-          className="flex"
-          autoComplete="false"
-          onSubmit={(e) => {
-            e.preventDefault()
-            submitPassword()
-          }}
-        >
+        <form className="flex" autoComplete="false" action={submitPassword}>
           <Input
             name="password"
             type="password"
