@@ -5,6 +5,14 @@ export async function GET(
   request: Request,
   { params }: { params: Promise<{ code: string }> },
 ) {
+  if (!process.env.NOTION_API_KEY) {
+    throw new Error("NOTION_API_KEY environment variable is not set")
+  }
+
+  if (!process.env.NOTION_LINKS_DATABASE_ID) {
+    throw new Error("NOTION_LINKS_DATABASE_ID environment variable is not set")
+  }
+
   const code = (await params).code
 
   const passwordHeader = request.headers.get("X-Password")
@@ -60,14 +68,6 @@ export async function getUrlByCode(code: string): Promise<{
   url: string | null
   password: string | null
 }> {
-  if (!process.env.NOTION_API_KEY) {
-    throw new Error("NOTION_API_KEY environment variable is not set")
-  }
-
-  if (!process.env.NOTION_LINKS_DATABASE_ID) {
-    throw new Error("NOTION_LINKS_DATABASE_ID environment variable is not set")
-  }
-
   try {
     const response = await axios.post(
       `https://api.notion.com/v1/databases/${process.env.NOTION_LINKS_DATABASE_ID}/query`,
