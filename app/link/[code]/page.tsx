@@ -78,15 +78,23 @@ export default function ShortLink({
     [params],
   )
 
+  const handleRedirect = useCallback(
+    async (password?: string) => {
+      const url = await getUrl(password)
+      if (url) router.replace(url)
+    },
+    [getUrl, router],
+  )
+
   const submitPassword = () => {
     setError(null)
-    getUrl(password).then((url) => url && router.replace(url)) // TODO: This code repeats twice
+    handleRedirect(password)
     setPassword("")
   }
 
   useEffect(() => {
-    getUrl().then((url) => url && router.replace(url)) // TODO: This code repeats twice
-  }, [getUrl, router])
+    handleRedirect()
+  }, [handleRedirect])
 
   return (
     <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-white dark:bg-black dark:text-white">
