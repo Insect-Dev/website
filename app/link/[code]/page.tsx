@@ -81,12 +81,12 @@ export default function ShortLink({
 
   const submitPassword = () => {
     setError(null)
-    getUrl(password)
+    getUrl(password).then((url) => url && router.replace(url)) // TODO: This code repeats twice
     setPassword("")
   }
 
   useEffect(() => {
-    getUrl() //.then((url) => {return url && router.replace(url)})
+    getUrl().then((url) => url && router.replace(url)) // TODO: This code repeats twice
   }, [getUrl, router])
 
   return (
