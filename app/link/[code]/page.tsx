@@ -42,7 +42,6 @@ export default function ShortLink({
         setStatus("Redirecting...")
 
         return response.data.url as string
-        // setUrl(response.data.url)
       } catch (error) {
         if (axios.isAxiosError(error)) {
           if (error.response?.status === 404) {
