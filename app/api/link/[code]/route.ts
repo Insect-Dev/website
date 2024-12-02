@@ -44,7 +44,7 @@ export async function GET(
       )
     }
 
-    return NextResponse.json({ url, password, passwordHeader })
+    return NextResponse.json({ url })
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     const outputError =
