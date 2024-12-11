@@ -1,24 +1,21 @@
-import { MagnifyingGlassIcon } from "@heroicons/react/24/outline"
-import { Button } from "@headlessui/react"
-import Panels from "./hero/Panels"
+import { MagnifyingGlassIcon, TvIcon } from "@heroicons/react/24/outline"
+import IconButton from "../IconButton"
 
 export default function Hero() {
   return (
-    <div className="mx-auto flex h-dvh px-12">
-      <div className="grid w-1/3 flex-none grid-rows-5 justify-center bg-green-300 p-8">
-        <div className="row-start-2 flex flex-col justify-center">
-          <h1 className="text-4xl">Insect Dev</h1>
+    <div className="mx-auto flex h-dvh flex-col px-12">
+      <div className="flex h-3/5 flex-col justify-center gap-5">
+        <div className="flex justify-center">
+          <h1 className=".bg-gradient-to-r .from-white .to-[#88d4dd] .bg-clip-text .text-transparent mb-6 text-center text-6xl font-bold md:text-7xl">
+            Insect Dev
+          </h1>
         </div>
-        <div className="row-span-2 row-start-3 flex flex-col items-center">
-          <Button className="m-2 flex items-center justify-center gap-2 rounded-full bg-white px-4 py-2">
-            <MagnifyingGlassIcon className="size-5" />
-            Explore
-          </Button>
+        <div className="flex flex-wrap justify-center">
+          <IconButton text="Explore" icon={MagnifyingGlassIcon} />
+          <IconButton text="Watch Devlogs" icon={TvIcon} />
         </div>
       </div>
-      <div className="relative z-10 w-2/3 bg-rose-300 py-8">
-        <Panels />
-      </div>
+      {/* <div className="relative z-10 h-2/5 bg-rose-300 py-8"></div> */}
     </div>
   )
 }
