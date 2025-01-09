@@ -2,8 +2,8 @@ import Hero from "@/app/components/sections/Hero"
 
 export default function Home() {
   return (
-    <div className="">
       <main className="h-dvh">
+    <div className="bg-gradient-to-br from-[#88d4dd] to-sky-400">
         <Hero />
         {["about us", "projects", "social"].map((item) => (
           <div
