@@ -76,7 +76,7 @@ export async function getUrlByCode(code: string): Promise<{
               checkbox: {
                 equals: true,
               },
-            }
+            },
           ],
         },
       },
