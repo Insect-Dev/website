@@ -11,8 +11,8 @@ export default function Hero() {
           </h1>
         </div>
         <div className="flex flex-wrap justify-center">
-          <IconButton text="Explore" icon={MagnifyingGlassIcon} />
-          <IconButton text="Watch Devlogs" icon={TvIcon} />
+          <IconButton icon={MagnifyingGlassIcon}>Explore</IconButton>
+          <IconButton icon={TvIcon}>Watch Devlogs</IconButton>
         </div>
       </div>
       {/* <div className="relative z-10 h-2/5 bg-rose-300 py-8"></div> */}
