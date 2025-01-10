@@ -13,10 +13,12 @@ export default function IconButton(props: {
         props.className,
       )}
     >
-      <span className="absolute h-8 w-8 rounded-full bg-black transition-all group-hover:w-[calc(100%-0.5rem)] group-active:h-10 group-active:w-full group-active:-translate-x-1 group-active:bg-zinc-800" />
+      <span className="absolute h-8 w-8 rounded-full bg-black transition-all group-hover:w-[calc(100%-0.5rem)] group-active:-m-1 group-active:h-10 group-active:w-full group-active:bg-zinc-800" />
+
       <span className="z-[5] flex h-8 w-8 items-center justify-center rounded-full text-white">
         <props.icon className="h-4 w-4" />
       </span>
+
       <span className="z-[5] px-3 transition-colors group-hover:text-white group-active:text-white">
         {props.children}
       </span>
