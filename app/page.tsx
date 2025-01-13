@@ -1,9 +1,12 @@
 import Hero from "@/app/components/sections/Hero"
+import Background from "./components/Background"
 
 export default function Home() {
   return (
-    <div className="bg-gradient-to-br from-[#88d4dd] to-sky-400">
-      <main className="min-h-dvh">
+    <div>
+      <Background />
+
+      <main className="z-[100] min-h-dvh">
         <Hero />
         {["about us", "projects", "social"].map((item) => (
           <div
@@ -14,6 +17,7 @@ export default function Home() {
           </div>
         ))}
       </main>
+
       <footer className="flex flex-wrap items-center justify-center">
         Footer
       </footer>
